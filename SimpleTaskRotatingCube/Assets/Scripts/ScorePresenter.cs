@@ -6,7 +6,7 @@ namespace Assets.Scripts
 {
     public class ScorePresenter : MonoBehaviour
     {
-        [SerializeField] Player player;
+        //[SerializeField] Player player;
         [SerializeField] Text score;
 
         public void ScoreChanged(int curentScore)

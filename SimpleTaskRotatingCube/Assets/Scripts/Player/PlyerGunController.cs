@@ -1,8 +1,9 @@
+using Assets.Scripts.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlyerGunController : MonoBehaviour
+public class PlyerGunController : MonoBehaviour, IGunControllable
 {
     [SerializeField] Gun gun;
 

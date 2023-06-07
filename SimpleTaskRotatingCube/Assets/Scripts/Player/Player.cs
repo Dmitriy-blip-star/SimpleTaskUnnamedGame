@@ -1,9 +1,10 @@
+using Assets.Scripts.Player;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour, IControllable
+public class Player : MonoBehaviour, IControllable, IGunControllable
 {
     public float speedRotate = 1.0f;
     public float speed = 1.0f;
@@ -17,6 +18,8 @@ public class Player : MonoBehaviour, IControllable
 
     public float rayDistance = 1f;
     bool ground = true;
+
+    [SerializeField] Gun gun;
 
     [SerializeField] public UnityEvent<int> scoreChanged;
 
@@ -87,5 +90,15 @@ public class Player : MonoBehaviour, IControllable
             score++;
             scoreChanged?.Invoke(score);
         }
+    }
+
+    public void SwitchGun(Gun gun)
+    {
+        this.gun = gun;
+    }
+
+    public void Shoot()
+    {
+        this.gun.Shoot();
     }
 }
