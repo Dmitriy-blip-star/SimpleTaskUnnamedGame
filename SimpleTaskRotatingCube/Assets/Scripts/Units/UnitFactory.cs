@@ -12,13 +12,16 @@ namespace Assets.Scripts.Units
 
         [SerializeField] int radiusSpawn;
 
-        public void Create(Unit unit)
+        [SerializeField] Unit[] units;
+        public Unit Create()
         {
-            Unit instance = Instantiate(unit);
+            Unit instance = Instantiate(units[Random.Range(0,units.Length)]);
             instance.Initizalize(Random.Range(minDamage, maxDamage), Random.Range(minSpeed, maxSpeed));
             instance.SpawnTo(spawnPoint.position, radiusSpawn);
             instance.IssueCry();
-
+            return instance;
         }
+
+
     }
 }

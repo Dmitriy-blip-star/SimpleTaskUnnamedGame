@@ -9,8 +9,6 @@ namespace Assets.Scripts.Units
         protected int Damage;
         protected int Speed;
 
-        
-
         public void Initizalize(int damage, int speed)
         {
             Damage= damage;

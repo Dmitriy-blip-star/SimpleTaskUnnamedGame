@@ -7,7 +7,7 @@ namespace Assets.Scripts.Units
     {
         public override void IssueCry()
         {
-            Debug.Log("Elf!");
+            Debug.Log($"<color=green> I'm Elf and my speed is equal to {Speed}, my damage is equal to {Damage} </color> ");
         }
     }
 }

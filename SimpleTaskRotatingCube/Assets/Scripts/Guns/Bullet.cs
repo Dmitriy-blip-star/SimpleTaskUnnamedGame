@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Scripts
 {
@@ -9,6 +10,8 @@ namespace Assets.Scripts
         [SerializeField] GameObject bullet;
         [SerializeField] float speed;
         float duration = 1.5f;
+
+        [SerializeField] UnityEvent unitDead;
 
         private void Update()
         {
@@ -26,6 +29,7 @@ namespace Assets.Scripts
             {
                 Destroy(other.gameObject);
                 Destroy(bullet);
+                unitDead?.Invoke();
             }
         }
         IEnumerator DestroyBullet(GameObject bullet)
