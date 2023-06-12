@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using Assets.Scripts.Player;
 using System;
 using UnityEngine;
@@ -23,14 +24,19 @@ public class Player : MonoBehaviour, IControllable, IGunControllable
 
     [SerializeField] public UnityEvent<int> scoreChanged;
 
+    
 
-    private void Start()
+
+    private void Awake()
     {
+        
         rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
+         
+
         ChangedGravityScale();
         CheckGround();
     }
@@ -90,11 +96,6 @@ public class Player : MonoBehaviour, IControllable, IGunControllable
             score++;
             scoreChanged?.Invoke(score);
         }
-    }
-
-    public void SwitchGun(Gun gun)
-    {
-        this.gun = gun;
     }
 
     public void Shoot()

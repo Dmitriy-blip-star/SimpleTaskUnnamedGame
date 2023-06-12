@@ -10,9 +10,9 @@ namespace Assets.Scripts.GameManager
     {
         [SerializeField] UnitFactory unitFactory;
 
-        List<Unit> enemys = new List<Unit>();
+        public List<Unit> enemys = new List<Unit>();
 
-        [SerializeField] int delay = 1;
+        [SerializeField] int limitUnitsOnMap = 10;
 
         private void Start()
         {
@@ -21,23 +21,10 @@ namespace Assets.Scripts.GameManager
 
         private void Update()
         {
-            StartCoroutine(CreateEnemy());
-            //if (enemys.Count < 10)
-            //{
-            //    StartCoroutine(CreateEnemy());
-            //}
-
+            if (enemys.Count <= limitUnitsOnMap)
+            {
+                enemys.Add(unitFactory.Create());
+            }
         }
-
-        IEnumerator CreateEnemy()
-        {
-            yield return new WaitForSeconds(delay);
-            enemys.Add(unitFactory.Create());
-        }
-
-        //public void UnitDead()
-        //{
-        //    enemys.RemoveAt(0);
-        //}
     }
 }

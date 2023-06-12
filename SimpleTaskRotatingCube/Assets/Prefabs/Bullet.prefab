@@ -117,7 +117,7 @@ MonoBehaviour:
   unitDead:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 43792fc7bcc7c734c99c78940851a958, type: 3}
+      - m_Target: {fileID: 7309683396119547155, guid: a98f4003584b93945b06a277c078823c, type: 3}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1

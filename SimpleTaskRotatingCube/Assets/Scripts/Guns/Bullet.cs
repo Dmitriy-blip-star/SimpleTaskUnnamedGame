@@ -1,17 +1,15 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.GameManager;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Assets.Scripts
 {
     public class Bullet : MonoBehaviour
-    {
-        
+    {        
         [SerializeField] GameObject bullet;
         [SerializeField] float speed;
         float duration = 1.5f;
-
-        [SerializeField] UnityEvent unitDead;
 
         private void Update()
         {
@@ -29,7 +27,6 @@ namespace Assets.Scripts
             {
                 Destroy(other.gameObject);
                 Destroy(bullet);
-                unitDead?.Invoke();
             }
         }
         IEnumerator DestroyBullet(GameObject bullet)
