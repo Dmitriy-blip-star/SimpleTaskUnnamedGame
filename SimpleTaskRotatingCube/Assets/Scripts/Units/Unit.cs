@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using Assets.Scripts.GameManager;
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,21 +12,31 @@ namespace Assets.Scripts.Units
         protected int Speed;
         protected int Health;
 
-        public void Initizalize(int damage, int speed)
+        private void Start()
         {
-            Damage= damage;
-            Speed= speed;
+            EventContainer.EnemyDied += Dead;
         }
 
+        private void OnDestroy()
+        {
+            EventContainer.EnemyDied -= Dead;
+        }
+
+        public void Initizalize(int damage, int speed)
+        {
+            Damage = damage;
+            Speed = speed;
+            
+        }
         public void SpawnTo(Vector3 spawnPoint, int radiusSpawn)
         {
             Vector2 randomPoint = Random.insideUnitCircle * radiusSpawn;
             transform.position = spawnPoint + new Vector3(randomPoint.x, 0, randomPoint.y);
         }
-
-
-        public abstract void IssueCry();
-
+        public void Dead()
+        {
+            Destroy(gameObject);
+        }
         public void ApplyDamage(int damage)
         {
             Health -= damage;

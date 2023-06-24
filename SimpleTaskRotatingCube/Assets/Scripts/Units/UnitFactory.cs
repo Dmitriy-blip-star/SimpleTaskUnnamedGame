@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.GameManager;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.Units
@@ -13,12 +14,13 @@ namespace Assets.Scripts.Units
         [SerializeField] int radiusSpawn;
 
         [SerializeField] Unit[] units;
+
         public Unit Create()
         {
-            Unit instance = Instantiate(units[Random.Range(0,units.Length)]);
+            Unit instance = Instantiate(units[Random.Range(0, units.Length)]);
             instance.Initizalize(Random.Range(minDamage, maxDamage), Random.Range(minSpeed, maxSpeed));
             instance.SpawnTo(spawnPoint.position, radiusSpawn);
-            instance.IssueCry();
+            //instance.IssueCry();
             return instance;
         }
 

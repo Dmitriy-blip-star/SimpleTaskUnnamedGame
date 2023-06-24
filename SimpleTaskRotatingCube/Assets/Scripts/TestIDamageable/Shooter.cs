@@ -53,14 +53,14 @@ namespace Assets.Scripts.TestIDamageable
 
         //    if (Physics.Raycast(ray, out hit))
         //    {
-        //        //targetPosition.position = hit.point;
+        //        targetPosition.position = hit.point;
 
         //        targetPosition.position = new Vector3(hit.point.x, targetPosition.position.y, hit.point.z);
 
-        //        //if (Input.GetKeyDown(KeyCode.Mouse1) && hit.collider.TryGetComponent(out IDamageable damageable))
-        //        //{
-        //        //    damageable.ApplyDamage(damage);
-        //        //}
+        //        if (Input.GetKeyDown(KeyCode.Mouse1) && hit.collider.TryGetComponent(out IDamageable damageable))
+        //        {
+        //            damageable.ApplyDamage(damage);
+        //        }
         //    }
         //}
 

@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.GameManager;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -19,22 +20,21 @@ namespace Assets.Scripts
         public void Initialize()
         {
             StartCoroutine(DestroyBullet(bullet));
+            
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.tag == "Respawn")
+            Destroy(bullet);
+            if (other.gameObject.tag == "Respawn")
             {
-                Destroy(other.gameObject);
-                Destroy(bullet);
+                EventContainer.OnEnemyDeid();
             }
         }
         IEnumerator DestroyBullet(GameObject bullet)
         {
-            
             yield return new WaitForSeconds(duration);
             Destroy(bullet);
-
         }
     }
 }
