@@ -12,31 +12,27 @@ namespace Assets.Scripts.Units
         protected int Speed;
         protected int Health;
 
-        private void Start()
-        {
-            EventContainer.EnemyDied += Dead;
-        }
+        //private void Start()
+        //{
+        //    EventContainer.EnemyDied += Dead;
+        //}
 
-        private void OnDestroy()
-        {
-            EventContainer.EnemyDied -= Dead;
-        }
+        //private void OnDestroy()
+        //{
+        //    EventContainer.EnemyDied -= Dead;
+        //}
 
         public void Initizalize(int damage, int speed)
         {
             Damage = damage;
             Speed = speed;
-            
         }
         public void SpawnTo(Vector3 spawnPoint, int radiusSpawn)
         {
             Vector2 randomPoint = Random.insideUnitCircle * radiusSpawn;
             transform.position = spawnPoint + new Vector3(randomPoint.x, 0, randomPoint.y);
         }
-        public void Dead()
-        {
-            Destroy(gameObject);
-        }
+        //public abstract void Dead();
         public void ApplyDamage(int damage)
         {
             Health -= damage;

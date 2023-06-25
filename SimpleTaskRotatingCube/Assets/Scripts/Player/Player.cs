@@ -1,4 +1,5 @@
 using Assets.Scripts;
+using Assets.Scripts.GameManager;
 using Assets.Scripts.Player;
 using System;
 using UnityEngine;
@@ -24,19 +25,13 @@ public class Player : MonoBehaviour, IControllable, IGunControllable
 
     [SerializeField] public UnityEvent<int> scoreChanged;
 
-    
-
-
     private void Awake()
-    {
-        
+    {   
         rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-         
-
         ChangedGravityScale();
         CheckGround();
     }
@@ -89,6 +84,7 @@ public class Player : MonoBehaviour, IControllable, IGunControllable
         if (other.tag == "Respawn")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            EnemySpawner.enemys.Clear();
         }
         if (other.tag == "Finish")
         {

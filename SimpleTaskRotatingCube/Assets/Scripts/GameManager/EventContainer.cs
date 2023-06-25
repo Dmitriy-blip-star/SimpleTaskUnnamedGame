@@ -8,9 +8,16 @@ namespace Assets.Scripts.GameManager
     {
         public static event Action EnemyDied;
 
+        public static event Action<float> HealthChange;
+
         public static void OnEnemyDeid()
         {
             EnemyDied?.Invoke();
+        }
+
+        public static void OnHeathFactotyChanged(float health)
+        {
+            HealthChange?.Invoke(health);
         }
     }
 }

@@ -38,16 +38,9 @@ namespace Assets.Scripts.GameManager
         }
 
         public void EnemyReturnFromList()
-        {
-            
+        {   
             enemys.RemoveAt(index);
             index++;
         }
-        void TestReturnFromList(GameObject gm)
-        {
-
-        }
-
-
     }
 }
